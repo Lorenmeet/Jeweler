@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ using System.Windows.Shapes;
 
 namespace Jeweler.View
 {
+ 
     /// <summary>
     /// Логика взаимодействия для Authorization.xaml
     /// </summary>
@@ -64,6 +66,10 @@ namespace Jeweler.View
                 MessageBox.Show("Некорректный логин и(или) пароль");
                 generateCaptcha();
                 return;
+            }
+            else
+            {
+               
             }
         }
 
