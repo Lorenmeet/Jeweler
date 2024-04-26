@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Product" Height="450" Width="800">
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="1*"/>
@@ -20,11 +21,11 @@
             </Grid.ColumnDefinitions>
 
             <TextBox Name="tbSearch" Grid.Column="0" TextChanged="TextBox_TextChanged" ></TextBox>
-            <ComboBox DisplayMemberPath="Name" SelectionChanged="ComboBox_SelectionChanged" SelectedItem="{Binding SelectedManufacturer}" Grid.Column="1" ItemsSource="{Binding Manufactures}"></ComboBox>
+            <ComboBox DisplayMemberPath="Name" SelectionChanged="ComboBox_SelectionChanged" SelectedItem="{Binding SelectedManufacturer}" Grid.Column="1" ItemsSource="{Binding Manufacturers}"></ComboBox>
             <ComboBox SelectedItem="{Binding SelectedSort}" SelectionChanged="ComboBox_SelectionChanged_1" Grid.Column="2" ItemsSource="{Binding SortItem}" DisplayMemberPath="Text"></ComboBox>
         </Grid>
 
-        <ListView Grid.Row="1" Name ="lvProducts"  ItemsSource="{Binding products}" HorizontalContentAlignment="Center" >
+        <ListView Grid.Row="1" Name ="lvProducts"  ItemsSource="{Binding products}" HorizontalContentAlignment="Stretch" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>

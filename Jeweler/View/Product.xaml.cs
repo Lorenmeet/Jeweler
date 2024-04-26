@@ -32,9 +32,8 @@ namespace Jeweler.View
        
         public Database.Manufacturer SelectedManufacturer { get; set; }
         public SortItem SelectedSort { get; set; }
-
         public  ObservableCollection<Database.Product> products { get; set; }
-        public ObservableCollection<Database.Manufacturer> manufacturers { get; set; }
+        public ObservableCollection<Database.Manufacturer> Manufacturers { get; set; }
         public ObservableCollection<SortItem> SortItem { get; set; }
 
         public Product(Database.TradeData trade, Database.User user)
@@ -43,8 +42,8 @@ namespace Jeweler.View
             this.trade = trade;
             allManufacturer = new Manufacturer() { ID = 0, Name = "Все производители" };
             products = new ObservableCollection<Database.Product>(trade.Products);
-            manufacturers = new ObservableCollection<Database.Manufacturer>(trade.Manufacturers);
-            manufacturers.Insert(0, allManufacturer);
+            Manufacturers = new ObservableCollection<Database.Manufacturer>(trade.Manufacturers);
+            Manufacturers.Insert(0, allManufacturer);
             SortItem = new ObservableCollection<SortItem>();
             SortItem.Add( new SortItem() { Text = "Цена по возрастанию", Description = new SortDescription() { PropertyName = "Cost", Direction = ListSortDirection.Ascending} } );
             SortItem.Add( new SortItem() { Text = "Цена по убыванию", Description = new SortDescription() { PropertyName = "Cost", Direction = ListSortDirection.Descending} } );

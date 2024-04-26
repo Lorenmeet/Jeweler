@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jeweler.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -41,6 +42,7 @@ namespace Jeweler.View
 
         private void OnSignIn(object sender, RoutedEventArgs e)
         {
+            
             if (isCaptcha && captchaCode.ToLower() != tbCaptcha.Text.Trim().ToLower())
             {
                 MessageBox.Show("ляляляляля");
@@ -69,6 +71,38 @@ namespace Jeweler.View
             }
             else
             {
+                switch (user.Role1.Name)
+                {
+                    case "Администратор":
+                        AdminPanel adminPanel = new AdminPanel(tradeData);
+                        adminPanel.Owner = this;
+                        adminPanel.Show();
+                        Hide();
+                        tbLogin.Text = "";
+                        tbPassword.Password = "";
+                        tbCaptcha.Text = "";
+                        canvas.Children.Clear();
+                        spCaptcha.Visibility = Visibility.Collapsed;
+                        break;
+                    case "Менеджер":
+                        Product productView = new Product(tradeData, user);
+                        productView.Owner = this;
+                        productView.Show();
+                        Hide();
+                        tbLogin.Text = "";
+                        tbPassword.Password = "";
+                        tbCaptcha.Text = "";
+                        canvas.Children.Clear();
+                        spCaptcha.Visibility = Visibility.Collapsed;
+                        break;
+                    case "Клиент":
+                        Product ShowProduct = new Product(tradeData, user);
+                        ShowProduct.Owner = this;
+                        ShowProduct.Show();
+                        Hide();
+                        break;
+                }
+
                
             }
         }
@@ -120,7 +154,7 @@ namespace Jeweler.View
         {
             for (int i = 1; i < 100; i++)
             {
-                // Не знаю какая высота и ширина, по этому так
+                
                 double x = random.NextDouble() * canvas.ActualWidth;
                 double y = random.NextDouble() * canvas.ActualHeight;
 
