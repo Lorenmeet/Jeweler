@@ -5,16 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jeweler.View"
         mc:Ignorable="d"
-        Title="AddProduct" Height="450" Width="800">
+        Title="AddProduct" Height="400" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Image Name ="ImagePreview"></Image>
-        <Button Click="Button_Click_1" Grid.Row="2" > Просмотр</Button>
-        <Button Click="Button_Click" Grid.Row="1"> Добавить</Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin ="10"  Grid.Column="0">
+            <Label Content="Артикул" ></Label>
+            <TextBox Name="tbArticle" Width="240"></TextBox>
+            <Label Content="Имя"></Label>
+            <TextBox Name="tbName" Width="240"></TextBox>
+            <Label Content="Описание"></Label>
+            <TextBox Name="tbDesc" Width="240"></TextBox>
+            <Label  Content="Категория"></Label>
+            <ComboBox DisplayMemberPath="Name"  ItemsSource="{Binding Categories}" Height="35" Name="cbCategory" Width="240"></ComboBox>
+            <Label Content="Производитель"></Label>
+            <ComboBox  DisplayMemberPath="Name" ItemsSource="{Binding Manafacts}" Height="35" Name="cbManu"  Width="240"></ComboBox>
+            
+        </StackPanel>
+        <StackPanel Margin="10" Grid.Column="1">
+            <Label Content="Поставщик"></Label>
+            <ComboBox DisplayMemberPath="Name"  ItemsSource="{Binding Providers}" Height="35" Name="cbProvider" Width="240" ></ComboBox>
+            <Label Content="Цена"></Label>
+            <TextBox Name="tbPrice" Width="240"></TextBox>
+            <Label Content="Скидка"></Label>
+            <TextBox Name="tbDiscount"  Width="240"></TextBox>
+            <Label Content="Максимальная скидка"></Label>
+            <TextBox Name="tbDiscountMax" Width="240"></TextBox>
+            <Label Content="Количество"></Label>
+            <TextBox Name="tbQuantity" Width="240"></TextBox>
+            
+        </StackPanel>
+        <StackPanel Margin="10" Grid.Column="2">
+
+            <Image  Name ="ImagePreview" Height="159" Width="205"></Image>
+            <Button Click="AddPhotography" Margin="0 30 0 0" Width="240">Добавить фото</Button>
+
+            <Button Click="SaveProduct" Margin="0 64 0 0" Width="240">Сохранить продукт</Button>
+        </StackPanel>
+       
+       
        
     </Grid>
 </Window>

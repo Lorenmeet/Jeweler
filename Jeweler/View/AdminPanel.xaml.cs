@@ -20,22 +20,30 @@ namespace Jeweler.View
     /// </summary>
     public partial class AdminPanel : Window
     {
+        private readonly Database.TradeData tradeData;
+        private Database.User user;
         public AdminPanel(TradeData tradeData)
         {
             InitializeComponent();
+
+            this.tradeData = tradeData;
+
         }
 
-        private void AddProduct(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            AddProduct addProduct = new AddProduct();
-            addProduct.Owner = this;
-            addProduct.Show();
+           Product product = new Product(tradeData, user);
+            product.Owner = this;
+            product.Show();
             Hide();
         }
 
-        private void ShowProduct(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            AddProduct addProduct = new AddProduct(tradeData);
+            addProduct.Owner = this;
+            addProduct.Show();
+            Hide();
         }
     }
 }

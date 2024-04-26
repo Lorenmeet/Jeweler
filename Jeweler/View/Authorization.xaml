@@ -5,24 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jeweler.View"
         mc:Ignorable="d"
-        Title="Authorization" Height="400" Width="300" ResizeMode="NoResize">
+        Title="Authorization" Height="400" Width="350" ResizeMode="NoResize">
     <Grid>
-        <StackPanel>
+        <StackPanel Margin="20">
             <Label Content="Логин"></Label>
-            <TextBox Name="tbLogin"></TextBox>
+            <TextBox Name="tbLogin" Width="290"></TextBox>
             <Label Content="Пароль"></Label>
-            <PasswordBox Name="tbPassword"></PasswordBox>
+            <PasswordBox Name="tbPassword" Width="290"></PasswordBox>
 
             <StackPanel Name="spCaptcha" Visibility="Visible">
                 <Canvas x:Name="canvas"  Height="60">
 
                 </Canvas>
-                <TextBox Name="tbCaptcha">
+                <TextBox Name="tbCaptcha" Width="290">
 
                 </TextBox>
             </StackPanel>
 
-            <Button Click="OnSignIn" Content="Войти"></Button>
+            <Button Margin="0 10 0 0" Click="OnSignIn" Foreground="White" Content="Войти" Width="229"></Button>
         </StackPanel>
     </Grid>
 </Window>

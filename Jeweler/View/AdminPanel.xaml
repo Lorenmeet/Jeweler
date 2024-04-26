@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="AdminPanel" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Button Click="AddProduct"  Grid.Row="1" > Добавить</Button>
-        <Button Click="ShowProduct" Grid.Row="2" > Посмотреть</Button>
+        <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+           
+            <Button Click="Button_Click_1" Foreground="White" Width="278">Просмотр продуктов</Button>
+            <Button Click="Button_Click" Foreground="White" Width="278" >Добавить продукт</Button>
+            
+            
+        </StackPanel>
     </Grid>
 </Window>
